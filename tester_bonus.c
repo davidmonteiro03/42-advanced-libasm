@@ -6,7 +6,7 @@
 /*   By: dcaetano <dcaetano@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 15:58:43 by dcaetano          #+#    #+#             */
-/*   Updated: 2026/09/07 18:57:46 by dcaetano         ###   ########.fr       */
+/*   Updated: 2026/09/08 07:06:41 by dcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ const t_array g_bases[] = {
 	BASES_ARRAY("david"),
 };
 
-const t_larray tests[] = {
+const t_larray g_larrs[] = {
 	LARRAY_NULL,
 	LARRAY(((const char[]){'1', '2', '3', '4', '5'})),
 	LARRAY(((const char[]){'1', '2', '3', '4', '5'})),
@@ -96,6 +96,8 @@ const t_larray tests[] = {
 const size_t g_strs_size = ARRAY_SIZE(g_strs);
 
 const size_t g_bases_size = ARRAY_SIZE(g_bases);
+
+const size_t g_larrs_size = ARRAY_SIZE(g_larrs);
 
 int fprintf_and_fflush(FILE *const stream, const char *const format, ...)
 {

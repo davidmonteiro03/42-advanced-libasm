@@ -6,7 +6,7 @@
 /*   By: dcaetano <dcaetano@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 09:39:08 by dcaetano          #+#    #+#             */
-/*   Updated: 2026/09/07 18:57:20 by dcaetano         ###   ########.fr       */
+/*   Updated: 2026/09/08 09:16:54 by dcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,3 +79,7 @@ int cmp_datas(const void *const data1, const void *const data2);
 	double: &cmp_doubles,             \
 	t_data: &cmp_datas,               \
 	default: NULL)
+
+// list utils
+void list_push_front(t_list **const begin_list, void *const data);
+void list_clear(t_list **const begin_list, void (*const free_fct)(void *));

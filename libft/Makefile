@@ -6,7 +6,7 @@
 #    By: dcaetano <dcaetano@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/07 09:00:06 by dcaetano          #+#    #+#              #
-#    Updated: 2026/09/07 18:24:53 by dcaetano         ###   ########.fr        #
+#    Updated: 2026/09/08 17:55:49 by dcaetano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,7 @@ endif
 
 # === FLAGS ================================================================== #
 
-FLAGS_CC                         = -Wall -Wextra -Werror -O0 -g
+FLAGS_CC                         = -Wall -Wextra -Werror -O0 -ggdb3
 FLAGS_MKDIR                      = -p
 FLAGS_RM                         = -rfv
 

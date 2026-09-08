@@ -6,7 +6,7 @@
 /*   By: dcaetano <dcaetano@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 07:26:36 by dcaetano          #+#    #+#             */
-/*   Updated: 2026/09/07 18:06:01 by dcaetano         ###   ########.fr       */
+/*   Updated: 2026/09/08 07:09:34 by dcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@ void function_info(const char *const function_name);
 
 extern const t_array g_strs[];
 extern const t_array g_bases[];
+extern const t_larray g_larrs[];
 extern const size_t g_strs_size;
 extern const size_t g_bases_size;
+extern const size_t g_larrs_size;

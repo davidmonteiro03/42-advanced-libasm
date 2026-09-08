@@ -6,7 +6,7 @@
 #    By: dcaetano <dcaetano@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/07 07:15:44 by dcaetano          #+#    #+#              #
-#    Updated: 2026/09/07 18:58:51 by dcaetano         ###   ########.fr        #
+#    Updated: 2026/09/08 17:55:41 by dcaetano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ FILES_MANDATORY_MAIN_OBJ         = $(DIRECTORY_OBJECTS)/tester.o
 # bonus
 FILES_BONUS_HEADERS              = colors common functions libs tester
 FILES_BONUS_FUNCTIONS            = atoi_base list_push_front list_size list_sort list_remove_if
-FILES_BONUS_HELPERS              = atoi_base alloc_functions compare_functions free_functions print_functions
+FILES_BONUS_HELPERS              = atoi_base alloc_functions compare_functions free_functions print_functions list_utils
 FILES_BONUS_TESTS                = $(addprefix test_,$(FILES_BONUS_FUNCTIONS))
 FILES_BONUS_INCLUDES             = $(addprefix $(DIRECTORY_BONUS)/$(DIRECTORY_INCLUDES)/,$(addsuffix _bonus$(EXTENSION_H),$(FILES_BONUS_HEADERS)))
 FILES_BONUS_SOURCES              = $(addprefix $(DIRECTORY_BONUS)/$(DIRECTORY_SOURCES)/,$(addsuffix _bonus$(EXTENSION_C),$(FILES_BONUS_TESTS)))
@@ -67,7 +67,7 @@ endif
 
 # === FLAGS ================================================================== #
 
-FLAGS_CC                         = -Wall -Wextra -Werror -O0 -g
+FLAGS_CC                         = -Wall -Wextra -Werror -O0 -ggdb3
 FLAGS_MKDIR                      = -p
 FLAGS_RM                         = -rfv
 

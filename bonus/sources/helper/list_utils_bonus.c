@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_push_front_bonus.c                         :+:      :+:    :+:   */
+/*   list_utils_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcaetano <dcaetano@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/07 16:10:54 by dcaetano          #+#    #+#             */
-/*   Updated: 2026/09/08 07:48:45 by dcaetano         ###   ########.fr       */
+/*   Created: 2026/09/08 07:18:13 by dcaetano          #+#    #+#             */
+/*   Updated: 2026/09/08 09:16:42 by dcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft_bonus.h"
-#include <stdlib.h>
+#include "../../includes/tester_bonus.h"
 
-void ft_list_push_front(t_list **begin_list, void *data)
+void list_push_front(t_list **const begin_list, void *const data)
 {
 	if (begin_list == NULL)
 		return;
@@ -23,4 +22,16 @@ void ft_list_push_front(t_list **begin_list, void *data)
 	new_node->data = data;
 	new_node->next = *begin_list;
 	*begin_list = new_node;
+}
+
+void list_clear(t_list **const begin_list, void (*const free_fct)(void *))
+{
+	if (begin_list == NULL || *begin_list == NULL)
+		return;
+	t_list *next = (*begin_list)->next;
+	if (free_fct != NULL)
+		(*free_fct)((*begin_list)->data);
+	free(*begin_list);
+	*begin_list = next;
+	list_clear(begin_list, free_fct);
 }

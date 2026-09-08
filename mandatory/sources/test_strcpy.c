@@ -6,7 +6,7 @@
 /*   By: dcaetano <dcaetano@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 08:15:41 by dcaetano          #+#    #+#             */
-/*   Updated: 2026/09/07 11:51:27 by dcaetano         ###   ########.fr       */
+/*   Updated: 2026/09/08 09:23:51 by dcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ static bool check_strcpy(const t_array *const dest, const t_array *const src)
 		   ((memcmp(expected, expected_dest, max_size) == 0) == (memcmp(provided, provided_dest, max_size) == 0)) &&
 		   ((memcmp(expected, src->data, max_size) == 0) == (memcmp(provided, src->data, max_size) == 0));
 }
-
-/* 01 02 10 12 20 21  */
 
 void test_strcpy(void)
 {
