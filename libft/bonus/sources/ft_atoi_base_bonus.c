@@ -6,7 +6,7 @@
 /*   By: dcaetano <dcaetano@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 16:06:06 by dcaetano          #+#    #+#             */
-/*   Updated: 2026/09/07 18:58:43 by dcaetano         ###   ########.fr       */
+/*   Updated: 2026/09/10 18:35:43 by dcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 
 size_t ft_strlen(const char *s);
 
+static int ft_isspace(int c)
+{
+	return c == ' ' || (c >= '\t' && c <= '\r');
+}
+
 static char *ft_strchr(const char *s, int c)
 {
 	if ((unsigned char)*s == (unsigned char)c)
@@ -26,26 +31,17 @@ static char *ft_strchr(const char *s, int c)
 	return ft_strchr(s + 1, c);
 }
 
-static int ft_isspace(int c)
-{
-	return c == ' ' || (c >= '\t' && c <= '\r');
-}
-
 static bool check_base(const char *const base)
 {
 	if (ft_strlen(base) <= 1)
 		return false;
-	bool used[UCHAR_MAX + 1];
-	for (size_t i = 0; i < sizeof(used) / sizeof(used[0]); i++)
-		used[i] = false;
 	for (char *bptr = (char *)base; *bptr != '\0'; bptr++)
 	{
 		if (*bptr == '+' || *bptr == '-' || ft_isspace(*bptr) != 0)
 			return false;
-		const size_t pos = (unsigned char)*bptr;
-		if (used[pos] == true)
-			return false;
-		used[pos] = true;
+		for (char *auxptr = (char *)base; *auxptr != '\0'; auxptr++)
+			if (bptr != auxptr && *bptr == *auxptr)
+				return false;
 	}
 	return true;
 }

@@ -6,7 +6,7 @@
 /*   By: dcaetano <dcaetano@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 08:14:59 by dcaetano          #+#    #+#             */
-/*   Updated: 2026/09/07 11:22:45 by dcaetano         ###   ########.fr       */
+/*   Updated: 2026/09/10 16:48:30 by dcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,17 @@ void test_read(void)
 			fprintf_and_fflush(stdout, " ");
 		(check_read(g_strs + i) == true) ? test_passed()
 										 : test_failed();
+	}
+	{
+		fprintf_and_fflush(stdout, " ");
+		errno = 0;
+		const ssize_t expected = read(-1, NULL, -1);
+		const int expected_errno = errno;
+		errno = 0;
+		const ssize_t provided = ft_read(-1, NULL, -1);
+		const int provided_errno = errno;
+		(expected == provided && expected_errno == provided_errno) ? test_passed()
+																   : test_failed();
 	}
 	fprintf_and_fflush(stdout, "\n");
 }

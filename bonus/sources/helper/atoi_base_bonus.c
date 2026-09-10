@@ -6,7 +6,7 @@
 /*   By: dcaetano <dcaetano@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 18:28:26 by dcaetano          #+#    #+#             */
-/*   Updated: 2026/09/07 18:33:07 by dcaetano         ###   ########.fr       */
+/*   Updated: 2026/09/10 18:36:19 by dcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,13 @@ static bool check_base(const char *const base)
 {
 	if (strlen(base) <= 1)
 		return false;
-	bool used[UCHAR_MAX + 1];
-	memset(used, false, sizeof(used) / sizeof(used[0]));
 	for (char *bptr = (char *)base; *bptr != '\0'; bptr++)
 	{
 		if (*bptr == '+' || *bptr == '-' || isspace(*bptr) != 0)
 			return false;
-		const size_t pos = (unsigned char)*bptr;
-		if (used[pos] == true)
-			return false;
-		used[pos] = true;
+		for (char *auxptr = (char *)base; *auxptr != '\0'; auxptr++)
+			if (bptr != auxptr && *bptr == *auxptr)
+				return false;
 	}
 	return true;
 }

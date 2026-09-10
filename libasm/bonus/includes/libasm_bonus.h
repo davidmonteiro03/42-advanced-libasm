@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_write.c                                         :+:      :+:    :+:   */
+/*   libasm_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcaetano <dcaetano@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/07 09:12:21 by dcaetano          #+#    #+#             */
-/*   Updated: 2026/09/10 15:57:01 by dcaetano         ###   ########.fr       */
+/*   Created: 2026/09/10 12:12:22 by dcaetano          #+#    #+#             */
+/*   Updated: 2026/09/10 12:12:48 by dcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
-#include <sys/syscall.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <errno.h>
+#pragma once
 
-ssize_t ft_write(int fd, const void *buf, size_t count)
+typedef struct s_list
 {
-	return syscall(SYS_write, fd, buf, count);
-}
+	void *data;
+	struct s_list *next;
+} t_list;
+
+int ft_atoi_base(char *str, char *base);
+void ft_list_push_front(t_list **begin_list, void *data);
+unsigned int ft_list_size(t_list *begin_list);
+void ft_list_sort(t_list **begin_list, int (*cmp)());
+void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)(), void (*free_fct)(void *));

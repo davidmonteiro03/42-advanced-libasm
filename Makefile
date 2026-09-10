@@ -6,7 +6,7 @@
 #    By: dcaetano <dcaetano@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/07 07:15:44 by dcaetano          #+#    #+#              #
-#    Updated: 2026/09/08 17:55:41 by dcaetano         ###   ########.fr        #
+#    Updated: 2026/09/10 17:17:28 by dcaetano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ DIRECTORY_INCLUDES               = includes
 DIRECTORY_SOURCES                = sources
 DIRECTORY_OBJECTS                = objects
 DIRECTORY_LIBFT                  = libft
+DIRECTORY_LIBASM                 = libasm
 DIRECTORY_HELPER                 = helper
 
 # === EXTENSIONS ============================================================= #
@@ -74,7 +75,9 @@ FLAGS_RM                         = -rfv
 # === PROJECT ================================================================ #
 
 LIBFT                            = libft.a
+LIBASM                           = libasm.a
 LIBTESTER                        = libtester.a
+# LIBS                             = $(LIBTESTER) $(DIRECTORY_LIBASM)/$(LIBASM)
 LIBS                             = $(LIBTESTER) $(DIRECTORY_LIBFT)/$(LIBFT)
 NAME                             = tester
 
@@ -86,16 +89,19 @@ bonus: $(NAME)
 
 clean:
 	@$(MAKE) -sC '$(DIRECTORY_LIBFT)' clean
+	@$(MAKE) -sC '$(DIRECTORY_LIBASM)' clean
 	@$(COMMAND_RM) $(FLAGS_RM) '$(DIRECTORY_OBJECTS)'
 
 fclean: clean
 	@$(MAKE) -sC '$(DIRECTORY_LIBFT)' fclean
+	@$(MAKE) -sC '$(DIRECTORY_LIBASM)' fclean
 	@$(COMMAND_RM) $(FLAGS_RM) '$(LIBTESTER)' '$(NAME)'
 
 re: fclean all
 
 $(NAME): $(LIBTESTER) $(MAIN_OBJ)
 	@$(MAKE) -sC '$(DIRECTORY_LIBFT)' $(MAKECMDGOALS)
+	@$(MAKE) -sC '$(DIRECTORY_LIBASM)' $(MAKECMDGOALS)
 	@$(COMMAND_CC) $(FLAGS_CC) '$(MAIN_OBJ)' $(LIBS) -o '$(NAME)'
 
 $(LIBTESTER): $(OBJECTS)

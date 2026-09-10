@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_write.c                                         :+:      :+:    :+:   */
+/*   libasm.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcaetano <dcaetano@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/07 09:12:21 by dcaetano          #+#    #+#             */
-/*   Updated: 2026/09/10 15:57:01 by dcaetano         ###   ########.fr       */
+/*   Created: 2026/09/10 12:19:31 by dcaetano          #+#    #+#             */
+/*   Updated: 2026/09/10 12:19:35 by dcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
-#include <sys/syscall.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <errno.h>
+#pragma once
 
-ssize_t ft_write(int fd, const void *buf, size_t count)
-{
-	return syscall(SYS_write, fd, buf, count);
-}
+#include <sys/types.h>
+
+size_t ft_strlen(const char *s);
+char *ft_strcpy(char *dest, const char *src);
+int ft_strcmp(const char *s1, const char *s2);
+ssize_t ft_write(int fd, const void *buf, size_t count);
+ssize_t ft_read(int fd, void *buf, size_t count);
+char *ft_strdup(const char *s);
+void *ft_calloc(size_t nmemb, size_t size);
