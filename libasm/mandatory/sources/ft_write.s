@@ -9,7 +9,6 @@ ft_write:
 ; {
 	push	rbp
 	mov	rbp, rsp
-	sub	rsp, 32
 ; 	ssize_t ret = syscall(SYS_write, fd, buf, count);
 	mov	rax, 1
 	syscall
@@ -26,6 +25,5 @@ ft_write:
 	mov	rax, -1
 ; }
 .return:
-	add	rsp, 32
 	pop	rbp
 	ret

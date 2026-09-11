@@ -6,7 +6,7 @@
 #    By: dcaetano <dcaetano@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/07 07:15:44 by dcaetano          #+#    #+#              #
-#    Updated: 2026/09/10 17:17:28 by dcaetano         ###   ########.fr        #
+#    Updated: 2026/09/11 15:04:37 by dcaetano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,8 +77,8 @@ FLAGS_RM                         = -rfv
 LIBFT                            = libft.a
 LIBASM                           = libasm.a
 LIBTESTER                        = libtester.a
-# LIBS                             = $(LIBTESTER) $(DIRECTORY_LIBASM)/$(LIBASM)
-LIBS                             = $(LIBTESTER) $(DIRECTORY_LIBFT)/$(LIBFT)
+LIBS                             = $(LIBTESTER) $(DIRECTORY_LIBASM)/$(LIBASM)
+# LIBS                             = $(LIBTESTER) $(DIRECTORY_LIBFT)/$(LIBFT)
 NAME                             = tester
 
 # === RULES ================================================================== #
